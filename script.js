@@ -128,7 +128,8 @@ let menu_obj = [
           },
         ]
       }
-    ]
+    ],
+    
   },
   {
     name_of_category: "category1",
@@ -235,5 +236,8 @@ document.getElementById("menu-btn").onclick = () => {
 }
 
 function set_category(n) {
-
+  let category_list = document.getElementById("category_list")
+  for(let pp = 0; pp < menu_obj[n].podcategoryes.length;pp++ ){
+    let documen
+  }
 }
