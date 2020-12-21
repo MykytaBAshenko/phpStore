@@ -233,11 +233,30 @@ document.getElementById("menu-btn").onclick = () => {
   close_btn.className = "close_btn_main_menu"
   result.push(close_btn)
   menu.append(...result)
+set_category(0)
+
 }
 
 function set_category(n) {
-  let category_list = document.getElementById("category_list")
+  let podcategory_list = document.getElementById("category_list")
+  let result = []
   for(let pp = 0; pp < menu_obj[n].podcategoryes.length;pp++ ){
-    let documen
+    let podcategory_element = document.createElement("div")
+    podcategory_element.className = "podcategory_element"
+    let category_element_title = document.createElement("div")
+    category_element_title.className = "category_element_title"
+    category_element_title.innerHTML = menu_obj[n].podcategory_name
+    podcategory_element.append(category_element_title)
+    let podcategory_list_exact = document.createElement("div")
+    podcategory_list_exact.className = "podcategory_list_exact"
+    for(let hhh = 0 ; hhh < menu_obj[n].podcategoryes[pp].links_of_podcategory.length;hhh++){
+      let podcategory_list_elem = document.createElement("a")
+      podcategory_list_elem.href = menu_obj[n].podcategoryes[pp].links_of_podcategory[hhh].link_of_podcategory;
+      podcategory_list_elem.innerHTML = menu_obj[n].podcategoryes[pp].links_of_podcategory[hhh].name_of_podcategory;
+      podcategory_list_elem.className  = "podcategory_list_elem_link"
+      podcategory_list_exact.append("podcategory_list_elem")
+    }
+    podcategory_element.append(podcategory_list_exact)
+    podcategory_list.append(podcategory_element)
   }
 }
