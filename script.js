@@ -56,6 +56,7 @@ function set_image(n ){
     let asd = document.getElementById(`slider-btn${which_image}`)
     asd.className +=" active"
 }
+if(btns_container)
 initing_slider()
 
 
