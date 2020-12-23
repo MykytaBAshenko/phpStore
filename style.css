@@ -1120,6 +1120,7 @@ width: 16px;
 font-weight: bold;
 margin-left: 10px;
 font-size: 12px;
+transform: translate(0, 2px);
 }
 .tovar-page-control-seller-info-meta-rating-comments{
 font-weight: 400;
