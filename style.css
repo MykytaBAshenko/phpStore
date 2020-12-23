@@ -1103,6 +1103,9 @@ font-weight: 400;
 color: #252D32;
 font-size: 14px;
 }
+.tovar-page-control-seller-info-meta-name span{
+  font-weight: 700;
+}
 .tovar-page-control-seller-info-meta-rating-stars{
 display: grid;
 grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;

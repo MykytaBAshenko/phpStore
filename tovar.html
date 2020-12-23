@@ -13,7 +13,7 @@
   <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="script.js">
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
 </head>
 <body>
   <div id="main-menu" class="main-menu-shell-none">
@@ -99,332 +99,40 @@
   <a href="#">Видео</a>
   <a href="#">Покупают вместе</a>
 </div>
-<style>
-
-.swiper-container {
-  width: 500px;
-  min-width: 300px;
-  height: auto;
-  padding-bottom: 15px;
-}
-
-.swiper-slide-img {
-  height: auto;
-  width: 100%;
-  border: 30px solid #d8d8d8;  /* move next and prev buttons off img */ 
-  min-height: 353px;
-  
-}
-
-.swiper-slide-img:hover {
-  cursor: pointer;
-}
-
-/* .swiper-slide-img {
-  height: 360px;
-} */
-
-
-.swiper-pagination {
-  background-color: #d8d8d8;
-  padding: 10px;
-}
-
-.swiper-button-prev {
-  position: absolute;
-  transform: translateX(-40%);
-  color: black;
-}
-
-.swiper-button-prev:focus {
-  outline: none;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-.swiper-button-next {
-  position: absolute;
-  transform: translateX(40%);
-  color: black;
-  font-weight: 900;
-}
-
-.swiper-button-next:focus {
-  outline: none;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-.swiper-pagination {
-  background: linear-gradient(to bottom right, #c2c2f0, #8585e0);
-  border-radius: 10px;
-}
-
-/*active pagination*/
-.swiper-pagination .swiper-pagination-bullet-active {
-  background-color: black; 
-}
-
-/*other pagination*/
-.swiper-pagination .swiper-pagination-bullet {
-  height: 15px;
-  width: 15px;
-}
-
-.swiper-pagination .swiper-pagination-bullet:hover {
-  transform: scale(1.2);
-  transition: all 0.5s;
-}
-
-.swiper-pagination .swiper-pagination-bullet:focus {
-   outline: none;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-.minimum-height { 
-    min-height: 257px;
-
-    @include small-screen {
-        min-height: calc((0.3002 * 100vw) + 21.49px);
-    }
-}
-
-/* ................................................ thumbs .......................................................... */
-
-.gallery-thumbs {
-    padding: 0;
-    margin-top: 0;
-    margin-bottom: 40px;
-}
-
-.gallery-thumbs .swiper-slide {
-    width: 25%;
-    opacity: 0.9;
-}
-
-.gallery-thumbs .swiper-slide-thumb-active {
-    opacity: 1;
-}
-  
-.gallery-thumbs .swiper-slide img {
-    width: 100%;
-    height: 70px;
-    min-height: 40px;
-    object-fit: cover;
-}
-
-
-
-/* ................................................ modal .......................................................... */
-.modal {
-  display:none;
-  position: fixed;
-  z-index: 2;
-  left: 0;
-  top: 0;
-  height: 100vh;
-  width: 100vw;
-}
-
-.modal-content {
-  background-color: rgb(0, 0, 0);
-  padding: 0;
-  height: 100%;
-  width: 100%;
-  min-width: 300px;
-  animation-name: modalOpen;
-  animation-duration: 1s;
-}
-
-.closeBtn {
-  position: absolute;  /* removed from normal flow of doc, positioned relative to its nearest ancestor (modal content)*/
-  z-index: 4;
-  color:white;
-  right: 5px;
-  font-size: 30px;
-}
-
- .closeBtn:hover,.closeBtn:focus {
-  color: rgb(114, 114, 114);
-  text-decoration: none;
-  cursor: pointer;
-}
-
-@keyframes modalOpen {
-  from{opacity: 0}
-  to {opacity: 1}
-}
-
-/* ............................................. modal swiper gallery ....................................................... */
-/* used ids higher specificity to override gallery styles */
-
-#swiper-container-modal {
-  z-index:3;
-  width:100%;
-  height:100%;
-  overflow:hidden;
-  padding:0;
-  border:0;
-}
-
-#swiper-pagination-modal {
-  display:none; /* if pagination not included in modal... index.html pagination buttons dnt change (black for active slide)*/
-}
-
-#swiper-button-next-modal {
-  transform:translateX(-40%);
-  color: white;
-}
-
-#swiper-button-prev-modal {
-  transform:translateX(40%);
-  color: white;
-}
-
-.swiper-slide-modal {
-  height: 100vh;
-}
-
-.swiper-lazy-modal {
-  object-fit: contain;
-  border:0;  
-}
-/* ............................................. responsiveness ....................................................... */
-@media all and (max-width: 520px) {
-  .swiper-container {
-    width: calc(100vw - 20px);
-  }
-
-  .swiper-button-next:after {
-    font-size: 20px !important;
-    transform:translateX(60%);
-  }
-  
-  
-
-  .swiper-button-prev:after {
-    font-size: 20px !important;
-    transform:translateX(-60%);
-  }
-
-  #swiper-button-next-modal {
-    font-size: 20px !important;
-    transform:translateX(20%);
-  }
-  
-  #swiper-button-prev-modal {
-    font-size: 20px !important;
-    transform:translateX(-20%);
-  }
-
-  .swiper-pagination {
-    padding: 4px;
-  }
-
-  .swiper-slide-img {
-    width: calc(100vw-32px);
-    height: auto;
-    border: 16px solid #d8d8d8;  /* move next and prev buttons off img */ 
-    min-height: calc((0.5338 * 100vw) + 48.476px); 
-  }
-
-  .swiper-pagination .swiper-pagination-bullet {
-    height: 12px;
-    width: 12px;
-  }
-
-.gallery-thumbs .swiper-slide img {
-        height: 14vw;
-    }
-
-}
-</style>
 <div class="tovar-page-component-shell">
   <div class="tovar-page-component">
     <div class="tovar-page-content">
-      <div id="simpleModal" class="modal">
-        <div class="modal-content">
-          <span class="closeBtn">&times;</span>
-          <!-- Swiper modal -->
-          <div id="swiper-container-modal" class="swiper-container-modal">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide swiper-slide-modal">
-                <div class="swiper-zoom-container">
-                  <img class="swiper-lazy swiper-lazy-modal" data-src="https://live.staticflickr.com/6079/6136071267_797265d54d.jpg">
-                </div>
-              </div>
-              <div class="swiper-slide swiper-slide-modal">
-                <div class="swiper-zoom-container">
-                  <img class="swiper-lazy swiper-lazy-modal" data-src="http://c1.staticflickr.com/4/3652/3286547152_59fd376d3c.jpg">
-                </div>
-              </div>
-              <div class="swiper-slide swiper-slide-modal">
-                <div class="swiper-zoom-container">
-                  <img class="swiper-lazy swiper-lazy-modal" data-src="https://c1.staticflickr.com/1/189/442112564_aad204d2de.jpg">
-                </div>
-              </div>
-              <div class="swiper-slide swiper-slide-modal">
-                <div class="swiper-zoom-container">
-                  <img class="swiper-lazy swiper-lazy-modal" data-src="https://live.staticflickr.com/8685/17081448532_77263fa0dd.jpg">
-                </div>
-              </div>
-              <div class="swiper-slide swiper-slide-modal">
-                <div class="swiper-zoom-container">
-                  <img class="swiper-lazy swiper-lazy-modal" data-src="https://c1.staticflickr.com/5/4451/24162846828_8500a2fec4.jpg">
-                </div>
-              </div>
-              <div class="swiper-slide swiper-slide-modal">
-                <div class="swiper-zoom-container">
-                  <img class="swiper-lazy swiper-lazy-modal" data-src="https://farm4.staticflickr.com/3199/2386530366_47bfae6da0_z.jpg">
-                </div>
-              </div>
+        <div class="column">
+          <img id=featured src="https://dummyimage.com/183x183/000/ff0000">
+    
+          <div class="slide-wrapper-from-tovar" id="slide-wrapper" >
+            <button id="slideLeft">
+              <svg version="1.1" class="slider-arrow-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="451.846px" height="451.847px" viewBox="0 0 451.846 451.847" style="enable-background:new 0 0 451.846 451.847;" xml:space="preserve"><g>	<path d="M345.441,248.292L151.154,442.573c-12.359,12.365-32.397,12.365-44.75,0c-12.354-12.354-12.354-32.391,0-44.744		L278.318,225.92L106.409,54.017c-12.354-12.359-12.354-32.394,0-44.748c12.354-12.359,32.391-12.359,44.75,0l194.287,194.284		c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,248.292z"></path></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+            </button>
+            <div id="slider">
+              <img class="thumbnail active" src="https://dummyimage.com/183x183/000/ff0000">
+              <img class="thumbnail" src="https://dummyimage.com/183x183/000/ffff00">
+              <img class="thumbnail" src="https://dummyimage.com/183x183/000/ff00ff">
+              <img class="thumbnail" src="https://dummyimage.com/183x183/000/00ff00">
+              <img class="thumbnail" src="https://dummyimage.com/183x183/000/ff00ff">
+    
+              <img class="thumbnail" src="https://dummyimage.com/183x183/000/f00f0f">
+              <img class="thumbnail" src="https://dummyimage.com/183x183/000/ff0000"><img class="thumbnail" src="https://dummyimage.com/183x183/000/ff0000">
+              <img class="thumbnail" src="https://dummyimage.com/183x183/000/ff0000">
+    
+              <img class="thumbnail" src="https://dummyimage.com/183x183/000/ff0000">
+              <img class="thumbnail" src="https://dummyimage.com/183x183/000/ff0000">
+              <img class="thumbnail" src="https://dummyimage.com/183x183/000/ff0000">
+              <img class="thumbnail" src="https://dummyimage.com/183x183/000/ff0000">
+              <img class="thumbnail" src="https://dummyimage.com/183x183/000/ff0000">
+              <img class="thumbnail" src="https://dummyimage.com/183x183/000/ff0000">
             </div>
-            <!-- Add Pagination -->
-            <div id="swiper-pagination-modal" class="swiper-pagination"></div>
-            <!-- Add Pagination -->
-            <div id="swiper-button-next-modal" class="swiper-button-next"></div>
-            <div id="swiper-button-prev-modal" class="swiper-button-prev"></div>
+            
+            <button id="slideRight">
+              <svg version="1.1" class="slider-arrow-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="451.846px" height="451.847px" viewBox="0 0 451.846 451.847" style="enable-background:new 0 0 451.846 451.847;" xml:space="preserve"><g>	<path d="M345.441,248.292L151.154,442.573c-12.359,12.365-32.397,12.365-44.75,0c-12.354-12.354-12.354-32.391,0-44.744		L278.318,225.92L106.409,54.017c-12.354-12.359-12.354-32.394,0-44.748c12.354-12.359,32.391-12.359,44.75,0l194.287,194.284		c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,248.292z"></path></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+            </button>
           </div>
         </div>
-      </div>
-    
-      <!-- Swiper -->
-      <div class="swiper-container swiper-container-main">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide minimum-height"><img class="swiper-slide-img" src="https://live.staticflickr.com/6079/6136071267_797265d54d.jpg"></div>
-          <div class="swiper-slide minimum-height"><img class="swiper-slide-img" src="http://c1.staticflickr.com/4/3652/3286547152_59fd376d3c.jpg"></div>
-          <div class="swiper-slide minimum-height"><img class="swiper-slide-img" src="https://c1.staticflickr.com/1/189/442112564_aad204d2de.jpg"></div>
-          <div class="swiper-slide minimum-height"><img class="swiper-slide-img" src="https://live.staticflickr.com/8685/17081448532_77263fa0dd.jpg"></div>
-          <div class="swiper-slide minimum-height"><img class="swiper-slide-img" src="https://c1.staticflickr.com/5/4451/24162846828_8500a2fec4.jpg"></div>
-          <div class="swiper-slide minimum-height"><img class="swiper-slide-img" src="https://farm4.staticflickr.com/3199/2386530366_47bfae6da0_z.jpg"></div>
-        </div>
-        <!-- Add Pagination -->
-        <div class="swiper-pagination"></div>
-        <!-- Add Pagination -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-      </div>
-    
-    <!-- Swiper thumbnails -->
-    <div class="swiper-container gallery-thumbs">
-      <div class="swiper-wrapper">
-                <div class="swiper-slide swiper-slide-thumbs">     
-         <img src="https://live.staticflickr.com/6079/6136071267_797265d54d.jpg">  
-                </div>
-                <div class="swiper-slide swiper-slide-thumbs">     
-         <img src="http://c1.staticflickr.com/4/3652/3286547152_59fd376d3c.jpg">  
-                </div>
-                <div class="swiper-slide swiper-slide-thumbs">     
-         <img src="https://c1.staticflickr.com/1/189/442112564_aad204d2de.jpg">  
-                </div>
-                <div class="swiper-slide swiper-slide-thumbs">     
-         <img src="https://live.staticflickr.com/8685/17081448532_77263fa0dd.jpg">  
-                </div>
-                <div class="swiper-slide swiper-slide-thumbs">     
-         <img src="https://c1.staticflickr.com/5/4451/24162846828_8500a2fec4.jpg">  
-                </div> 
-                <div class="swiper-slide swiper-slide-thumbs">     
-         <img src="https://farm4.staticflickr.com/3199/2386530366_47bfae6da0_z.jpg">  
-       </div>
-    </div>	
 
       <div class="tovar-page-content-about">
         <div class="tovar-page-content-about-title">
@@ -935,5 +643,173 @@
   </footer>
 </body>
 </html>
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="script.js"></script>
+<script src="https://dh4.github.io/gallerize.js/src/gallerize.js"></script>
+<script>
+  let thumbnails = document.getElementsByClassName('thumbnail')
+
+let activeImages = document.getElementsByClassName('active-image')
+
+for (var i=0; i < thumbnails.length; i++){
+
+  thumbnails[i].addEventListener('mouseover', function(){
+    console.log(activeImages)
+    
+    if (activeImages.length > 0){
+      activeImages[0].classList.remove('active-image')
+    }
+    
+
+    this.classList.add('active-image')
+    document.getElementById('featured').src = this.src
+  })
+}
+
+
+let buttonRight = document.getElementById('slideRight');
+let buttonLeft = document.getElementById('slideLeft');
+
+buttonLeft.addEventListener('click', function(){
+  document.getElementById('slider').scrollLeft -= 180
+})
+
+buttonRight.addEventListener('click', function(){
+  document.getElementById('slider').scrollLeft += 180
+})
+
+</script>
+
+<style>
+
+  /* 
+  <div class="gallery-from-tovar">
+        <div id="gallery"></div>
+        <div id="thumbnails"></div>
+
+      </div>
+       */
+ 
+   
+#content-wrapper{
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.column{
+	padding: 10px;
+  align-items: center;
+  display: grid;
+justify-items: center;
+}
+
+#featured{
+	max-width: 440px;
+  width: 100%;
+	cursor: pointer;
+	border: 2px solid black;
+
+}
+
+.thumbnail{
+	object-fit: cover;
+	max-width: 45px;
+	max-height: 45px;
+	cursor: pointer;
+	opacity: 0.5;
+	margin: 5px;
+	border: 2px solid black;
+
+}
+
+.thumbnail:hover{
+	opacity:1;
+}
+
+.active-image{
+	opacity: 1;
+}
+
+#slide-wrapper{
+	max-width: 500px;
+  margin-top: 6px;
+	min-height: 100px;
+	align-items: center;
+}
+
+#slider{
+	max-width: 330px;
+  width: 100%;
+	display: flex;
+	flex-wrap: nowrap;
+	overflow-x: auto;
+
+}
+.slide-wrapper-from-tovar{
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  column-gap: 20px;
+}
+.slide-wrapper-from-tovar button svg{
+  width: 10px;
+  fill: black;
+  height: 16px;
+
+}
+.slide-wrapper-from-tovar button:hover{
+  background-color: #777777;
+  cursor: pointer;
+}
+.slide-wrapper-from-tovar button{
+  padding: 15px 5px;
+  display: grid;
+  background-color: #C6C6C6;
+  height: 45px;
+  justify-items: center;
+  align-items: center;
+}
+
+.slide-wrapper-from-tovar button#slideLeft svg{
+  transform: rotate(180deg);
+
+}
+#slider::-webkit-scrollbar {
+		display: none;
+
+}
+
+#slider::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+		display: none;
+
+}
+ 
+#slider::-webkit-scrollbar-thumb {
+  background-color: #dede2e;
+  outline: 1px solid slategrey;
+   border-radius: 100px;
+   display: none;
+
+}
+
+#slider::-webkit-scrollbar-thumb:hover{
+    background-color: #18b5ce;
+		display: none;
+
+}
+
+
+.arrow{
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+	transition: .3s;
+}
+
+.arrow:hover{
+	opacity: .5;
+	width: 35px;
+	height: 35px;
+}
+
+</style>
