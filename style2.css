@@ -184,14 +184,15 @@ color: #252D32;
 .close_btn_main_menu svg{
   fill: white;
   height: 18px;
-  
+  cursor: pointer;
   width: 18px;
 
 }
 .close_btn_main_menu{
   margin: 10px;
-  align-self: start;
-  justify-self: start;
+  width: 100%;
+  height: 100%;
+ 
 }
 .category_list{
   height: 100vh;
