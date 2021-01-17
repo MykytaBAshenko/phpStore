@@ -56,3 +56,18 @@ function changeSlide(){
 }
 
 
+var elements = document.getElementsByClassName("row_btn_of_category_selector");
+
+var myFunction = function() {
+  let catl = document.getElementsByClassName("category_list")
+    for (var i = 0; i < catl.length; i++) {
+      catl[i].className = "category_list category_list_display_none"
+}
+    let id_of_category = this.id.slice(7)
+    let category_list_exact = document.getElementById("category_list"+id_of_category)
+    category_list_exact.className = "category_list"
+};
+
+for (var i = 0; i < elements.length; i++) {
+    elements[i].addEventListener('click', myFunction, false);
+}

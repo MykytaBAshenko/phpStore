@@ -1294,3 +1294,8 @@ height: 25px;
     display:none;
   }
 }
+
+
+.category_list_display_none{
+  display: none;
+}
