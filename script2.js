@@ -12,33 +12,47 @@ close_btn_main_menu.addEventListener("click", function(){
 });
 
 
-let thumbnails = document.getElementsByClassName('thumbnail')
+var slides = document.querySelectorAll(".slide");
+var dots = document.querySelectorAll(".dot");
+var index = 0;
 
-let activeImages = document.getElementsByClassName('active-image')
 
-for (var i=0; i < thumbnails.length; i++){
+function prevSlide(n){
+  index+=n;
+  console.log("prevSlide is called");
+  changeSlide();
+}
 
-  thumbnails[i].addEventListener('mouseover', function(){
-    console.log(activeImages)
+function nextSlide(n){
+  index+=n;
+  changeSlide();
+}
+
+changeSlide();
+
+function changeSlide(){
     
-    if (activeImages.length > 0){
-      activeImages[0].classList.remove('active-image')
+  if(index>slides.length-1)
+    index=0;
+  
+  if(index<0)
+    index=slides.length-1;
+  
+  
+  
+    for(let i=0;i<slides.length;i++){
+      slides[i].style.display = "none";
+      
+      dots[i].classList.remove("main-page-active");
+      
+      
     }
     
+    slides[index].style.display = "block";
+    dots[index].classList.add("main-page-active");
 
-    this.classList.add('active-image')
-    document.getElementById('featured').src = this.src
-  })
+  
+
 }
 
 
-let buttonRight = document.getElementById('slideRight');
-let buttonLeft = document.getElementById('slideLeft');
-
-buttonLeft.addEventListener('click', function(){
-  document.getElementById('slider').scrollLeft -= 180
-})
-
-buttonRight.addEventListener('click', function(){
-  document.getElementById('slider').scrollLeft += 180
-})
